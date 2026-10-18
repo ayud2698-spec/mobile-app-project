@@ -22,6 +22,7 @@ import 'acara31.dart'; // Import file acara 31
 import 'acara32.dart'; // Import file acara 32
 import 'acara33.dart'; // Import file acara 33
 import 'acara34.dart'; // Import file acara 34
+import 'acara35.dart'; // Import file acara 35
 
 void main() => runApp(MyApp());
 
@@ -359,6 +360,21 @@ class MainMenu extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => Acara34()),
+                );
+              },
+            ),
+          ),
+          // Tombol menuju Acara 35
+          Card(
+            child: ListTile(
+              leading: CircleAvatar(child: Text('35')),
+              title: Text('Rest API III (Movie DB)'),
+              subtitle: Text('Integrasi API dengan API Key & Poster'),
+              trailing: Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Acara35()),
                 );
               },
             ),
