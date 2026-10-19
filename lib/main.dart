@@ -32,6 +32,7 @@ import 'acara37.dart';
 import 'acara38.dart';
 import 'acara39.dart';
 import 'acara40.dart';
+import 'acara41.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -124,6 +125,7 @@ class MainMenu extends StatelessWidget {
           _buildMenuCard(context, '38', 'Auth API', Acara38()),
           _buildMenuCard(context, '39', 'Auth API II', Acara39()),
           _buildMenuCard(context, '40', 'Rest API V (Movie DB)', Acara40()),
+          _buildMenuCard(context, '41', 'Rest API VI (Movie DB)', Acara41()),
         ],
       ),
     );
