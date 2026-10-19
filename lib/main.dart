@@ -1,30 +1,63 @@
 // lib/main.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart'
+    show kIsWeb; // Tambahan untuk deteksi Web
 
-import 'acara15.dart'; // Import file acara 15
-import 'acara16.dart'; // Import file acara 16
-import 'acara17.dart'; // Import file acara 17
-import 'acara18.dart'; // Import file acara 18
-import 'acara19.dart'; // Import file acara 19
-import 'acara20.dart'; // Import file acara 20
-import 'acara21.dart'; // Import file acara 21
-import 'acara22.dart'; // Import file acara 22
-import 'acara23.dart'; // Import file acara 23
-import 'acara24.dart'; // Import file acara 24
+// Import semua acara
+import 'acara15.dart';
+import 'acara16.dart';
+import 'acara17.dart';
+import 'acara18.dart';
+import 'acara19.dart';
+import 'acara20.dart';
+import 'acara21.dart';
+import 'acara22.dart';
+import 'acara23.dart';
+import 'acara24.dart';
 import 'acara25.dart';
-import 'acara26.dart'; // Import file acara 26
-import 'acara27.dart'; // Import file acara 27
-import 'acara28.dart'; // Import file acara 28
-import 'acara29.dart'; // Import file acara 29
-import 'acara30.dart'; // Import file acara 30
-import 'acara31.dart'; // Import file acara 31
-import 'acara32.dart'; // Import file acara 32
-import 'acara33.dart'; // Import file acara 33
-import 'acara34.dart'; // Import file acara 34
-import 'acara35.dart'; // Import file acara 35
+import 'acara26.dart';
+import 'acara27.dart';
+import 'acara28.dart';
+import 'acara29.dart';
+import 'acara30.dart';
+import 'acara31.dart';
+import 'acara32.dart';
+import 'acara33.dart';
+import 'acara34.dart';
+import 'acara35.dart';
+import 'acara36.dart';
+import 'acara37.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Inisialisasi Firebase
+  if (kIsWeb) {
+    // JIKA DIJALANKAN DI WEB (CHROME)
+    // Kamu butuh konfigurasi khusus Web dari Firebase Console.
+    // Sementara ini, kita kosongkan karena kita akan pakai Android.
+    await Firebase.initializeApp(
+      options: const FirebaseOptions(
+        apiKey: "AIzaSyCDW73lMQ5L4y1I4uO9EVCd4ZuHsgla7Sk",
+        authDomain: "auth-flutter-a2555.firebaseapp.com",
+        projectId: "auth-flutter-a2555",
+        storageBucket: "auth-flutter-a2555.firebasestorage.app",
+        messagingSenderId: "117477218046",
+        // PERHATIKAN: AppId untuk web harus berakhiran ':web:...'
+        // Jika kamu belum mendaftarkan Web di console, ini akan error.
+        appId: "1:117477218046:web:xxxxxx",
+      ),
+    );
+  } else {
+    // JIKA DIJALANKAN DI ANDROID (EMULATOR/HP)
+    // Ini akan otomatis membaca file google-services.json kamu
+    await Firebase.initializeApp();
+  }
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -34,15 +67,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blue),
       debugShowCheckedModeBanner: false,
 
-      // ============ ROUTE MANAGEMENT ============
+      // Route Management
       initialRoute: '/',
       getPages: [
         GetPage(name: '/', page: () => MainMenu()),
-        GetPage(name: '/page-b', page: () => PageB()),
       ],
-      // ==========================================
 
-      // Bindings & Translations dari Acara 31
+      // Bindings & Translations
       initialBinding: AppBindings(),
       translations: Messages(),
       locale: Locale('id', 'ID'),
@@ -62,324 +93,50 @@ class MainMenu extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(16.0),
         children: [
-          // Tombol menuju Acara 15
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('15')),
-              title: Text('Widget Core Component I'),
-              subtitle: Text('Text, Icon, Container, Button, Form'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara15()),
-                );
-              },
-            ),
-          ),
-          SizedBox(height: 10),
-
-          // Tombol menuju Acara 16
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('16')),
-              title: Text('Widget Core Component II'),
-              subtitle: Text('Image, ListView, dll (Segera)'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara16()),
-                );
-              },
-            ),
-          ),
-          // Tombol menuju Acara 17
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('17')),
-              title: Text('Flutter Styling'),
-              subtitle: Text('AppBar, Row, Column, Padding, Margin'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara17()),
-                );
-              },
-            ),
-          ),
-          // Tombol menuju Acara 18
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('18')),
-              title: Text('Routing dan Navigation'),
-              subtitle: Text('Navigasi antar halaman dengan Navigator'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara18()),
-                );
-              },
-            ),
-          ),
-          // Tombol menuju Acara 19
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('19')),
-              title: Text('Button Tab Navigation'),
-              subtitle: Text('Named Routing, Route Generator, Bottom Tab'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara19()),
-                );
-              },
-            ),
-          ),
-          // Tombol menuju Acara 20
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('20')),
-              title: Text('Drawer Widget'),
-              subtitle: Text('Drawer, EndDrawer, Bottom Tab Kombinasi'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara20()),
-                );
-              },
-            ),
-          ),
-          // Tombol menuju Acara 21
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('21')),
-              title: Text('Gradient'),
-              subtitle: Text('LinearGradient, RadialGradient, SweepGradient'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara21()),
-                );
-              },
-            ),
-          ),
-          // Tombol menuju Acara 22
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('22')),
-              title: Text('PageView'),
-              subtitle: Text('Navigasi halaman dengan PageView'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara22()),
-                );
-              },
-            ),
-          ),
-          // Tombol menuju Acara 23
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('23')),
-              title: Text('Popup Menu'),
-              subtitle: Text('PopupMenuButton, PopupMenuItem'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara23()),
-                );
-              },
-            ),
-          ),
-          // Tombol menuju Acara 24
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('24')),
-              title: Text('Gradient, PageView, Dropdown'),
-              subtitle: Text('Gabungan Acara 21 + 22 + 23'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara24()),
-                );
-              },
-            ),
-          ),
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('25')),
-              title: Text('Form I'),
-              subtitle: Text('TextFormField, Validasi, Keyboard Type'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara25()),
-                );
-              },
-            ),
-          ),
-          // Tombol menuju Acara 26
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('26')),
-              title: Text('Form II'),
-              subtitle: Text('Checkbox, Radio Button, Switch'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara26()),
-                );
-              },
-            ),
-          ),
-          // Tombol menuju Acara 27
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('27')),
-              title: Text('Form III'),
-              subtitle: Text('Formulir lengkap dengan validasi'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara27()),
-                );
-              },
-            ),
-          ),
-          // Tombol menuju Acara 28
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('28')),
-              title: Text('Form IV'),
-              subtitle: Text('Formulir dengan validasi dan dialog'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara28()),
-                );
-              },
-            ),
-          ),
-          // Tombol menuju Acara 29
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('29')),
-              title: Text('GetX State Management'),
-              subtitle: Text(
-                  'State Management, Dependency Management, Route Management'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara29()),
-                );
-              },
-            ),
-          ),
-          // Tombol menuju Acara 30
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('30')),
-              title: Text('State Management (GetX)'),
-              subtitle: Text('Reactive State, Computed, Workers'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara30()),
-                );
-              },
-            ),
-          ),
-          // Tombol menuju Acara 31
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('31')),
-              title: Text('State Management (GetX)'),
-              subtitle: Text('Reactive State, Computed, Workers'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara31()),
-                );
-              },
-            ),
-          ),
-          // Tombol menuju Acara 32
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('32')),
-              title: Text('State Management (GetX)'),
-              subtitle: Text('Reactive State, Computed, Workers'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara32()),
-                );
-              },
-            ),
-          ),
-          // Tombol menuju Acara 33
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('33')),
-              title: Text('API Integration'),
-              subtitle: Text('GET, POST, PUT, DELETE'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara33()),
-                );
-              },
-            ),
-          ),
-          // Tombol menuju Acara 34
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('34')),
-              title: Text('API Integration'),
-              subtitle: Text('GET, POST, PUT, DELETE'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara34()),
-                );
-              },
-            ),
-          ),
-          // Tombol menuju Acara 35
-          Card(
-            child: ListTile(
-              leading: CircleAvatar(child: Text('35')),
-              title: Text('Rest API III (Movie DB)'),
-              subtitle: Text('Integrasi API dengan API Key & Poster'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Acara35()),
-                );
-              },
-            ),
-          ),
+          // (Biarkan semua Card dari Acara 15 sampai 37 di sini, persis seperti kode kamu)
+          _buildMenuCard(context, '15', 'Widget Core Component I', Acara15()),
+          _buildMenuCard(context, '16', 'Widget Core Component II', Acara16()),
+          _buildMenuCard(context, '17', 'Flutter Styling', Acara17()),
+          _buildMenuCard(context, '18', 'Routing dan Navigation', Acara18()),
+          _buildMenuCard(context, '19', 'Button Tab Navigation', Acara19()),
+          _buildMenuCard(context, '20', 'Drawer Widget', Acara20()),
+          _buildMenuCard(context, '21', 'Gradient', Acara21()),
+          _buildMenuCard(context, '22', 'PageView', Acara22()),
+          _buildMenuCard(context, '23', 'Popup Menu', Acara23()),
+          _buildMenuCard(
+              context, '24', 'Gradient, PageView, Dropdown', Acara24()),
+          _buildMenuCard(context, '25', 'Form I', Acara25()),
+          _buildMenuCard(context, '26', 'Form II', Acara26()),
+          _buildMenuCard(context, '27', 'Form III', Acara27()),
+          _buildMenuCard(context, '28', 'Form IV', Acara28()),
+          _buildMenuCard(context, '29', 'GetX State Management', Acara29()),
+          _buildMenuCard(context, '30', 'State Management (GetX)', Acara30()),
+          _buildMenuCard(context, '31', 'State Management (GetX)', Acara31()),
+          _buildMenuCard(context, '32', 'State Management (GetX)', Acara32()),
+          _buildMenuCard(context, '33', 'API Integration', Acara33()),
+          _buildMenuCard(context, '34', 'API Integration', Acara34()),
+          _buildMenuCard(context, '35', 'Rest API III (Movie DB)', Acara35()),
+          _buildMenuCard(context, '36', 'Rest API IV (User List)', Acara36()),
+          _buildMenuCard(context, '37', 'Firebase Auth', Acara37()),
         ],
+      ),
+    );
+  }
+
+  // Helper Widget untuk membuat Card agar kode lebih rapi
+  Widget _buildMenuCard(
+      BuildContext context, String nomor, String judul, Widget halamanTujuan) {
+    return Card(
+      child: ListTile(
+        leading: CircleAvatar(child: Text(nomor)),
+        title: Text(judul),
+        trailing: Icon(Icons.arrow_forward_ios),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => halamanTujuan),
+          );
+        },
       ),
     );
   }

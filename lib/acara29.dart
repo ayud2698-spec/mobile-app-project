@@ -2,9 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-// ============================================================
 // MODEL
-// ============================================================
+
 class Product {
   final int id;
   final String name;
@@ -19,9 +18,8 @@ class Product {
   });
 }
 
-// ============================================================
 // CONTROLLER (State Management GetX)
-// ============================================================
+
 class ProductController extends GetxController {
   // Reactive state (.obs = observable)
   var counter = 0.obs;
@@ -64,9 +62,8 @@ class ProductController extends GetxController {
   }
 }
 
-// ============================================================
 // HALAMAN
-// ============================================================
+
 class Acara29 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

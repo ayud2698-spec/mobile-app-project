@@ -25,9 +25,8 @@ class Acara33 extends StatelessWidget {
   }
 }
 
-// ============================================================
 // MODEL
-// ============================================================
+
 class User {
   final int id;
   final String email;
@@ -57,9 +56,8 @@ class User {
   String get fullName => '$firstName $lastName';
 }
 
-// ============================================================
 // HALAMAN: DAFTAR USER
-// ============================================================
+
 class UserListPage extends StatefulWidget {
   @override
   _UserListPageState createState() => _UserListPageState();
@@ -222,9 +220,8 @@ class _UserListPageState extends State<UserListPage> {
   }
 }
 
-// ============================================================
 // HALAMAN: DETAIL USER (GET Detail)
-// ============================================================
+
 class UserDetailPage extends StatefulWidget {
   final int userId;
 

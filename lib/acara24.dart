@@ -13,9 +13,8 @@ class Acara24 extends StatelessWidget {
   }
 }
 
-// ============================================================
 // HALAMAN 1: GRADIENT SHOWCASE (dari Acara 21)
-// ============================================================
+
 class GradientShowcasePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -146,9 +145,8 @@ class GradientShowcasePage extends StatelessWidget {
   }
 }
 
-// ============================================================
 // HALAMAN 2: PAGEVIEW (dari Acara 22)
-// ============================================================
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -263,18 +261,16 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-// ============================================================
 // CLASS MODEL PILIHAN (dari Acara 23)
-// ============================================================
+
 class Pilihan {
   const Pilihan({required this.teks, required this.warna});
   final String teks;
   final Color warna;
 }
 
-// ============================================================
 // HALAMAN 3: DETAIL + DROPDOWN (dari Acara 23)
-// ============================================================
+
 class Halamandua extends StatefulWidget {
   final String gambar;
   final Color warna;

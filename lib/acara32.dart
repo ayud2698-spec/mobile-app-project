@@ -184,9 +184,8 @@ class Acara32 extends StatelessWidget {
   }
 }
 
-// ============================================================
 // HALAMAN A
-// ============================================================
+
 class PageA extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -221,9 +220,8 @@ class PageA extends StatelessWidget {
   }
 }
 
-// ============================================================
 // HALAMAN B
-// ============================================================
+
 class PageB extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -255,9 +253,8 @@ class PageB extends StatelessWidget {
   }
 }
 
-// ============================================================
 // HALAMAN DENGAN ARGUMEN
-// ============================================================
+
 class PageWithArgs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

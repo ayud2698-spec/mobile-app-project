@@ -2,9 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-// ============================================================
 // 1. TRANSLATIONS (Multi Bahasa)
-// ============================================================
+
 class Messages extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
@@ -34,9 +33,8 @@ class Messages extends Translations {
       };
 }
 
-// ============================================================
 // 2. SERVICE CLASS
-// ============================================================
+
 class UserService extends GetxService {
   var username = 'Dinda'.obs;
   var isLoggedIn = true.obs;
@@ -52,9 +50,8 @@ class UserService extends GetxService {
   }
 }
 
-// ============================================================
 // 3. CONTROLLER 1: Counter
-// ============================================================
+
 class CounterController extends GetxController {
   var counter = 0.obs;
 
@@ -63,9 +60,8 @@ class CounterController extends GetxController {
   void reset() => counter.value = 0;
 }
 
-// ============================================================
 // 4. CONTROLLER 2: Theme & Language
-// ============================================================
+
 class SettingsController extends GetxController {
   var isDarkMode = false.obs;
   var isEnglish = false.obs; // default: Indonesia
@@ -85,9 +81,8 @@ class SettingsController extends GetxController {
   }
 }
 
-// ============================================================
 // 5. BINDINGS
-// ============================================================
+
 class AppBindings extends Bindings {
   @override
   void dependencies() {
@@ -97,9 +92,8 @@ class AppBindings extends Bindings {
   }
 }
 
-// ============================================================
 // 6. HALAMAN UTAMA
-// ============================================================
+
 class Acara31 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -144,9 +138,8 @@ class Acara31 extends StatelessWidget {
   }
 }
 
-// ============================================================
 // CARD 1: User Service
-// ============================================================
+
 class UserServiceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -230,9 +223,8 @@ class UserServiceCard extends StatelessWidget {
   }
 }
 
-// ============================================================
 // CARD 2: Counter
-// ============================================================
+
 class CounterCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -293,9 +285,8 @@ class CounterCard extends StatelessWidget {
   }
 }
 
-// ============================================================
 // CARD 3: Theme & Language
-// ============================================================
+
 class SettingsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -360,9 +351,8 @@ class SettingsCard extends StatelessWidget {
   }
 }
 
-// ============================================================
 // CARD 4: Info
-// ============================================================
+
 class InfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

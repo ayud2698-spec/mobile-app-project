@@ -2,9 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-// ============================================================
 // MODEL
-// ============================================================
+
 class Product {
   final int id;
   final String name;
@@ -28,9 +27,8 @@ class CartItem {
   double get subtotal => product.price * quantity;
 }
 
-// ============================================================
 // CONTROLLER
-// ============================================================
+
 class CartController extends GetxController {
   // ============ OBSERVABLE STATE ============
   // RxList: daftar item di keranjang
@@ -131,9 +129,8 @@ class CartController extends GetxController {
   }
 }
 
-// ============================================================
 // HALAMAN UTAMA
-// ============================================================
+
 class Acara30 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -176,9 +173,8 @@ class Acara30 extends StatelessWidget {
   }
 }
 
-// ============================================================
 // TAB 1: PRODUK
-// ============================================================
+
 class ProductTab extends StatelessWidget {
   final CartController controller;
   ProductTab({required this.controller});
@@ -239,9 +235,8 @@ class ProductTab extends StatelessWidget {
   }
 }
 
-// ============================================================
 // TAB 2: KERANJANG
-// ============================================================
+
 class CartTab extends StatelessWidget {
   final CartController controller;
   CartTab({required this.controller});
@@ -389,9 +384,8 @@ class CartTab extends StatelessWidget {
   }
 }
 
-// ============================================================
 // TAB 3: INFO (Demo Counter & Workers)
-// ============================================================
+
 class InfoTab extends StatelessWidget {
   final CartController controller;
   InfoTab({required this.controller});
