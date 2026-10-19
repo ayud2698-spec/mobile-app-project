@@ -41,4 +41,16 @@ class CrudApi {
     final response = await http.delete(Uri.parse('$baseUrl/posts/$id'));
     return response.statusCode == 200;
   }
+
+  // Tambahkan di dalam class CrudApi
+  // 5. READ DETAIL (GET by ID)
+  static Future<Post> getPostDetail(int id) async {
+    final response = await http.get(Uri.parse('$baseUrl/posts/$id'));
+
+    if (response.statusCode == 200) {
+      return Post.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('Data dengan ID $id tidak ditemukan');
+    }
+  }
 }
